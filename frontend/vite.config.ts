@@ -11,8 +11,15 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/ask': 'http://localhost:5000',
-      '/chat': 'http://localhost:5000'
+      '/ask': {
+        target: process.env.API_URL,
+        changeOrigin: true,
+        secure: true
+      },
+      '/chat': {
+        target: process.env.API_URL,
+        changeOrigin: true,
+        secure: true
+      }
     }
-  }
-})
+  }})
