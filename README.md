@@ -1,10 +1,11 @@
-# [Preview] Sample Chat App with AOAI
+# Create an Architect Copilot with AOAI
 
-This repo contains sample code for a simple chat webapp that integrates with Azure OpenAI. Note: some portions of the app use preview APIs.
+This repo contains sample code for an architect copilot chatbot application that integrates with Azure OpenAI. Note: some portions of the app use preview APIs.
 
 ## Prerequisites
 - An existing Azure OpenAI resource and model deployment of a chat model (e.g. `gpt-35-turbo-16k`, `gpt-4`)
-- To use Azure OpenAI on your data, one of the following data sources:
+- Organisation data such as CMDB data, Application catalog information and Business Standards.
+- To use Azure OpenAI on your organisation data, one of the following data sources:
   - Azure AI Search Index
   - Azure CosmosDB Mongo vCore vector index
   - Elasticsearch index (preview)
@@ -14,9 +15,10 @@ This repo contains sample code for a simple chat webapp that integrates with Azu
 
 ## Configure the app
 
-### Create a .env file for local development
+### Rename the env file and populate it with keys and endpoints for local development
 
-Follow instructions below in the [app configuration](#app-settings) section to create a .env file for local development of your app.  This file can be used as a reference to populate the app settings for your Azure App Service deployed webapp.
+Rename the "env.sample" file to ".env"
+Follow instructions below in the [app configuration](#app-settings) section to populate the .env file for local development of your app.  This file can be used as a reference to populate the app settings for your Azure App Service deployed webapp.
 
 ### Create a JSON file for populating Azure App Service app settings
 
