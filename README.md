@@ -557,7 +557,7 @@ After saving `settings.json`:
 
 ## Use Architect Copilot in GitHub Copilot Chat
 
-1. Open the GitHub Copilot Chat panel in VS Code
+1. Open the GitHub Copilot Chat panel in VS Code and switch to Agent mode
 2. In the chat input, use the tool selector to pick `architect-copilot` or type:
 
 ```
