@@ -501,25 +501,26 @@ Any custom images assigned to variables `UI_LOGO`, `UI_CHAT_LOGO` or `UI_FAVICON
 
 Feel free to fork this repository and make your own modifications to the UX or backend logic. You can modify the source (`frontend/src`). For example, you may want to change aspects of the chat display, or expose some of the settings in `app.py` in the UI for users to try out different behaviors. After your code changes, you will need to rebuild the front-end via `start.sh` or `start.cmd`.
 
-#### Integrate Architect Copilot in VS Code (GitHub Copilot Agent Mode)
+# Integrate Architect Copilot in VS Code (GitHub Copilot Agent Mode)
 
 You can configure Architect Copilot to work as a custom tool within GitHub Copilot Chat using the Model Context Protocol (MCP). This allows you to run your own AI assistant alongside GitHub Copilot in VS Code.
 
+## Prerequisites
 
-Prerequisites
 - Visual Studio Code
 - GitHub Copilot license with Agent Mode enabled
 - Architect Copilot installed and running locally
 - MCP server installed and working
 - Python installed and accessible
 
-#### Configure Architect Copilot in VS Code
-Open VS Code
-Press Ctrl + Shift + P → type Preferences: Open Settings (JSON) and select it.
-You can also search for MCP in the Settings UI and click “Edit in settings.json”.
-Paste the following block in your settings.json:
+## Configure Architect Copilot in VS Code
 
+1. Open VS Code
+2. Press `Ctrl + Shift + P` → type `Preferences: Open Settings (JSON)` and select it
+   - You can also search for MCP in the Settings UI and click "Edit in settings.json"
+3. Paste the following block in your `settings.json`:
 
+```json
 {
   "mcp": {
     "servers": {
@@ -535,27 +536,35 @@ Paste the following block in your settings.json:
     }
   }
 }
+```
 
+4. Replace the `C:\\Path\\To...` placeholders with the actual paths on your machine. For example:
 
-Replace the C:\\Path\\To... placeholders with the actual paths on your machine. For example:
-
+```json
 "command": "C:\\Users\\alex\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
 "args": [
   "C:\\Users\\alex\\Architect-Copilot-v3.1\\server.py"
 ]
+```
 
-▶ Start the MCP Server
-After saving settings.json:
-In the bottom toolbar of VS Code, locate the MCP section (usually in the status bar or Output panel).
-Click the ▶ Start button next to architect-copilot.
-This launches the Architect Copilot server using the configured Python environment.
+## Start the MCP Server
 
-### Use Architect Copilot in GitHub Copilot Chat
-Open the GitHub Copilot Chat panel in VS Code.
-In the chat input, use the tool selector to pick architect-copilot or type:
+After saving `settings.json`:
 
+1. In the bottom toolbar of VS Code, locate the MCP section (usually in the status bar or Output panel)
+2. Click the ▶ Start button next to `architect-copilot`
+3. This launches the Architect Copilot server using the configured Python environment
+
+## Use Architect Copilot in GitHub Copilot Chat
+
+1. Open the GitHub Copilot Chat panel in VS Code
+2. In the chat input, use the tool selector to pick `architect-copilot` or type:
+
+```
 /architect-copilot How do I modernize a Java Spring Boot monolith?
-Architect Copilot will respond using your local server logic and organization-specific knowledge (if integrated with your data).
+```
+
+3. Architect Copilot will respond using your local server logic and organization-specific knowledge (if integrated with your data)
 
 ### Scalability
 You can configure the number of threads and workers in `gunicorn.conf.py`. After making a change, redeploy your app using the commands listed above.
